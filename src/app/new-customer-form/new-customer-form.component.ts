@@ -10,11 +10,13 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class NewCustomerFormComponent implements OnInit {
   customer = new Customer();
   id: string;
+  addEdit: string;
   constructor(private httpClient: HttpClient, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     if (this.router.url !== '/customer/new') {
+      this.addEdit = 'Edit'
       this.id = this.route.snapshot.params['id']
       this.httpClient.get('https://tonyhabib-express-crud-api.herokuapp.com/api/customer/' + this.id).subscribe(
         response => {
@@ -26,6 +28,9 @@ export class NewCustomerFormComponent implements OnInit {
           }
         }
       )
+    }
+    else {
+      this.addEdit = 'Create';
     }
   }
 
