@@ -1,0 +1,22 @@
+<div class="table-wrapper">
+  <div class="table-title">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Create <b>Customer</b></h2>
+      </div>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="customer.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" [(ngModel)]="customer.phone" name="phone">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a class="btn btn-link float-right" [routerLink]="['/']">Back to list</a>
+  </form>
+</div>
